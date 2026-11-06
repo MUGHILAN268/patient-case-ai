@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareAI | Patient Case Taking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="logo">✚</div>
+            <div>
+                <h2>CareAI</h2>
+                <span>Clinical Assistant</span>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item">
+                <span>👤</span>
+                Patients
+            </button>
+
+            <button class="nav-item">
+                <span>💬</span>
+                AI Interviews
+            </button>
+
+            <button class="nav-item">
+                <span>📋</span>
+                Case Reports
+            </button>
+
+            <button class="nav-item">
+                <span>📅</span>
+                Appointments
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item">
+                ⚙ Settings
+            </button>
+
+            <div class="doctor-mini">
+                <div class="avatar">DR</div>
+
+                <div>
+                    <strong>Dr. Arun</strong>
+                    <small>General Physician</small>
+                </div>
+
+                <span>•••</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <h1>Patient Case Taking</h1>
+                <p>AI-assisted clinical documentation</p>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-btn">🔔</button>
+
+                <button class="status">
+                    <span></span>
+                    System Online
+                </button>
+
+            </div>
+
+        </header>
+
+        <section class="patient-header">
+
+            <div class="patient-info">
+
+                <div class="patient-avatar">
+                    RK
+                </div>
+
+                <div>
+                    <span class="label">CURRENT PATIENT</span>
+
+                    <h2>Rohan Kumar</h2>
+
+                    <p>
+                        25 years · Male · ABHA: 91-XXXX-XXXX-1234
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="patient-actions">
+
+                <button class="secondary-btn">
+                    ← Previous
+                </button>
+
+                <button class="primary-btn">
+                    Save Case
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+            <div class="interview-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="eyebrow">AI CASE INTERVIEW</span>
+
+                        <h2>Patient Conversation</h2>
+                    </div>
+
+                    <div class="ai-status">
+                        <div class="pulse"></div>
+                        AI Active
+                    </div>
+
+                </div>
+
+                <div class="progress-area">
+
+                    <div class="progress-text">
+                        <span>Case completion</span>
+                        <strong id="progressText">20%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div id="progressBar"></div>
+                    </div>
+
+                </div>
+
+                <div class="chat" id="chat">
+
+                    <div class="message ai">
+                        <div class="bot-avatar">AI</div>
+                        <div class="bubble">
+                            Hi Rohan 👋<br><br>
+                            I'm your AI case-taking assistant.
+                            I'll ask you a few questions to understand your current health concern.
+                        </div>
+                    </div>
+
+                    <div class="message ai">
+                        <div class="bot-avatar">AI</div>
+                        <div class="bubble">
+                            What is the main problem you are facing today?
+                        </div>
+                    </div>
+
+                    <div class="message user">
+                        <div class="bubble">
+                            I have stomach pain since 2 days.
+                        </div>
+                    </div>
+
+                    <div class="message ai">
+                        <div class="bot-avatar">AI</div>
+                        <div class="bubble">
+                            Thanks. Where exactly is the pain located?
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="chat-input">
+
+                    <button class="mic-btn" onclick="voiceInput()">
+                        🎙
+                    </button>
+
+                    <input
+                        id="messageInput"
+                        type="text"
+                        placeholder="Type your answer..."
+                        onkeypress="handleEnter(event)"
+                    >
+
+                    <button
+                        class="send-btn"
+                        onclick="sendMessage()"
+                    >
+                        ➤
+                    </button>
+
+                </div>
+
+                <div class="privacy">
+                    🔒 Patient information is securely processed
+                </div>
+
+            </div>
+
+            <div class="right-column">
+
+                <div class="summary-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span class="eyebrow">LIVE AI EXTRACTION</span>
+                            <h2>Case Summary</h2>
+                        </div>
+
+                        <span class="live-dot">● LIVE</span>
+
+                    </div>
+
+                    <div class="summary-section">
+
+                        <div class="summary-icon">🩺</div>
+
+                        <div>
+                            <small>Chief Complaint</small>
+
+                            <strong id="complaint">
+                                Abdominal pain
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-section">
+
+                        <div class="summary-icon">◷</div>
+
+                        <div>
+                            <small>History</small>
+
+                            <strong id="historySummary">
+                                Started 2 days ago
+                            </strong>
+
+                            <p id="historyDetail">
+                                Intermittent pain in lower abdomen.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-section">
+
+                        <div class="summary-icon">⚠</div>
+
+                        <div>
+                            <small>Associated Symptoms</small>
+
+                            <div class="tags">
+                                <span id="symptomTag1">Mild fever</span>
+                                <span id="symptomTag2">↓ Appetite</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-section">
+
+                        <div class="summary-icon">💊</div>
+
+                        <div>
+                            <small>Medication</small>
+
+                            <strong id="medicationSummary">
+                                Paracetamol · Occasional
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="summary-section">
+
+                        <div class="summary-icon">✓</div>
+
+                        <div>
+                            <small>Allergies</small>
+
+                            <strong class="safe" id="allergySummary">
+                                No known drug allergies
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <button class="summary-action" onclick="generateConversationSummary()">
+                        Generate Gemini Summary
+                    </button>
+
+                </div>
+
+                <div class="alert-card">
+
+                    <div class="alert-icon">
+                        !
+                    </div>
+
+                    <div>
+
+                        <strong>AI Observation</strong>
+
+                        <p id="alertText">
+                            Mild fever reported.
+                            Doctor review recommended.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="stats-grid">
+
+                    <div class="stat">
+                        <span>Questions</span>
+                        <strong id="questionCount">4</strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>Fields</span>
+                        <strong>8/12</strong>
+                    </div>
+
+                    <div class="stat">
+                        <span>Time</span>
+                        <strong>02:14</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+
+            <span>CareAI v1.0 · AI-assisted documentation</span>
+
+            <span>
+                ⚕ Doctor remains responsible for clinical decisions
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

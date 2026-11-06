@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">Clinical Review</p>
+                <h1>Doctor Dashboard</h1>
+            </div>
+            <a class="doctor-link" href="index.html">Back to Intake</a>
+        </header>
+
+        <section class="card dashboard-card">
+            <div class="dashboard-header">
+                <div>
+                    <label>Patient</label>
+                    <h2 id="doctorPatientName">Select a patient</h2>
+                </div>
+                <select id="patientSelect" onchange="loadPatient()">
+                    <option value="">Loading patients...</option>
+                </select>
+            </div>
+
+            <div id="doctorDetails" class="doctor-details">
+                <p>No patient selected.</p>
+            </div>
+
+            <div class="action-grid">
+                <button>Start Consultation</button>
+                <button>Add Examination Findings</button>
+                <button>Add Diagnosis</button>
+                <button>Add Prescription</button>
+                <button>Order Tests / Reports</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', loadPatientListForDoctor)
+    </script>
+</body>
+</html>
